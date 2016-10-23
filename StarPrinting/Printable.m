@@ -10,14 +10,14 @@
 
 @implementation NSObject (Printable)
 
-- (void)print
+- (void)print_p
 {
-    [self print:[Printer connectedPrinter]];
+    [self print_p:[Printer connectedPrinter]];
 }
 
-- (void)print:(Printer *)printer
+- (void)print_p:(Printer *)printer
 {
-    [printer print:[self performSelector:@selector(printedFormat)]];
+    [printer print_p:[self performSelector:@selector(printedFormat)]];
 }
 
 @end

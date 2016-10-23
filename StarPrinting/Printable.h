@@ -20,7 +20,7 @@
 
 @interface NSObject (Printable)
 
-- (void)print;
-- (void)print:(Printer *)printer;
+- (void)print_p;
+- (void)print_p:(Printer *)printer;
 
 @end
