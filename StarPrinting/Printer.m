@@ -579,7 +579,8 @@ static char const * const ConnectJobTag = "ConnectJobTag";
     if ([p count] == 2) {
         
         NSString *modelNumber = p[0];
-        if ([modelNumber length] == 6 && [modelNumber rangeOfString:@"TSP1"].location != NSNotFound) {
+        NSRange result = [modelNumber rangeOfString:@"TSP1"];
+        if (result.location == NSNotFound) {
             compatible = NO;
         }
     }
