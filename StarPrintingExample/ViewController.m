@@ -282,7 +282,7 @@
 {
     [_printableTextField resignFirstResponder];
     if(_printTextBtn.isEnabled) {
-        [self print];
+        [self print_p];
     }
 }
 

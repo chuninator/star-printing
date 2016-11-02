@@ -55,8 +55,11 @@ static char const * const ConnectJobTag = "ConnectJobTag";
 
 + (Printer *)connectedPrinter
 {
-    if (connectedPrinter) return connectedPrinter;
+    // if already connected, return instance
+    if (connectedPrinter)
+        return connectedPrinter;
     
+    // try to get previously used printer
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if([defaults objectForKey:kConnectedPrinterKey]) {
         NSData *encoded = [defaults objectForKey:kConnectedPrinterKey];
@@ -64,29 +67,34 @@ static char const * const ConnectJobTag = "ConnectJobTag";
         return connectedPrinter;
     }
     
+    // signify no connected printer
     return nil;
 }
 
-+ (void)search:(PrinterSearchBlock)block
++ (void)search:(PrinterSearchBlock)printer_search
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        NSArray *found = [PORT_CLASS searchPrinter];
-        
-        NSMutableArray *printers = [NSMutableArray arrayWithCapacity:[found count]];
+        // look for my class of printers
+        NSArray *foundPrinters = [PORT_CLASS searchPrinter];
+        // setup array of possible printers
+        NSMutableArray *printers = [NSMutableArray arrayWithCapacity:[foundPrinters count]];
+        // lookup last connected printer, if any (non-nil)
         Printer *lastKnownPrinter = [Printer connectedPrinter];
-        
-        for(PortInfo *p in found) {
+        // run thru the found printer ports
+        for(PortInfo *p in foundPrinters) {
             Printer *printer = [Printer printerFromPort:p];
+            // TODO DAC-2016-10-31 This makes no sense, if we are running thru found printers why is the last
+            // known used, if it is not online (not in the found list) we should not be using it
             if([printer.macAddress isEqualToString:lastKnownPrinter.macAddress]) {
                 [printers addObject:lastKnownPrinter];
             } else {
                 [printers addObject:printer];
             }
         }
-        
+        // TODO Is this supposed to be recursive?
         dispatch_async(dispatch_get_main_queue(), ^{
-            block(printers);
+            printer_search(printers);
         });
     });
 }
