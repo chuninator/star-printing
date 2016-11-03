@@ -6,8 +6,6 @@
 //  OpenTable
 //
 
-#import <SenTestingKit/SenTestingKit.h>
-
 #import "Printer.h"
 #import "FakeSMPort.h"
 #import "FakePrinterManager.h"

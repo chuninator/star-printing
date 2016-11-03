@@ -11,13 +11,10 @@
 		57777E2C18DB779D00922AE5 /* SenAsyncTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 57777E2A18DB76AF00922AE5 /* SenAsyncTestCase.m */; };
 		579069EE18DB7E7900A44AED /* receipt_short.xml in Resources */ = {isa = PBXBuildFile; fileRef = 579069ED18DB7E7900A44AED /* receipt_short.xml */; };
 		579069F018DB7E9100A44AED /* receipt_long.xml in Resources */ = {isa = PBXBuildFile; fileRef = 579069EF18DB7E9100A44AED /* receipt_long.xml */; };
-		579069F218DB83B500A44AED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570BF5D818D9F31C000876EA /* QuartzCore.framework */; };
-		57ECCFA918D8AD5E00EE51FF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECCFA818D8AD5E00EE51FF /* XCTest.framework */; };
 		57ECCFAA18D8AD5E00EE51FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECCF9A18D8AD5E00EE51FF /* Foundation.framework */; };
 		57ECCFB518D8AD5E00EE51FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57ECCFB318D8AD5E00EE51FF /* InfoPlist.strings */; };
 		57ECCFB718D8AD5E00EE51FF /* StarPrintingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECCFB618D8AD5E00EE51FF /* StarPrintingTests.m */; };
 		57ECCFD218D8ADCD00EE51FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECCF9A18D8AD5E00EE51FF /* Foundation.framework */; };
-		57ECCFD418D8ADCD00EE51FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECCFD318D8ADCD00EE51FF /* CoreGraphics.framework */; };
 		57ECCFDB18D8ADCD00EE51FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57ECCFD918D8ADCD00EE51FF /* InfoPlist.strings */; };
 		57ECCFDD18D8ADCD00EE51FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECCFDC18D8ADCD00EE51FF /* main.m */; };
 		57ECCFE118D8ADCD00EE51FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECCFE018D8ADCD00EE51FF /* AppDelegate.m */; };
@@ -28,7 +25,6 @@
 		57ECD03918D8B1B500EE51FF /* FakeSMPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECD03718D8B1B500EE51FF /* FakeSMPort.m */; };
 		57ECD03B18D8B1E000EE51FF /* FakePrinterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECD03518D8B1B500EE51FF /* FakePrinterManager.m */; };
 		57ECD04E18D8E94900EE51FF /* PrinterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECD04D18D8E94900EE51FF /* PrinterCell.m */; };
-		57ECD05318D8E98800EE51FF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECD05218D8E98800EE51FF /* SenTestingKit.framework */; };
 		750360581DBC3568007FE325 /* Printable.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECD02218D8B01800EE51FF /* Printable.m */; };
 		750360591DBC356D007FE325 /* Printer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECD02518D8B01800EE51FF /* Printer.m */; };
 		7503605A1DBC3571007FE325 /* PrintParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECD02718D8B01800EE51FF /* PrintParser.m */; };
@@ -37,12 +33,11 @@
 		7503605F1DBC35D7007FE325 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECCF9A18D8AD5E00EE51FF /* Foundation.framework */; };
 		750360601DBC3684007FE325 /* StarPrinting.h in Headers */ = {isa = PBXBuildFile; fileRef = 5717A64118E3214700DA7486 /* StarPrinting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		750360661DBC4BD2007FE325 /* StarIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360651DBC4BD2007FE325 /* StarIO.framework */; };
-		750360671DBC4BD2007FE325 /* StarIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360651DBC4BD2007FE325 /* StarIO.framework */; };
 		750360681DBC4BD2007FE325 /* StarIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360651DBC4BD2007FE325 /* StarIO.framework */; };
 		7503606A1DBC4C7D007FE325 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360691DBC4C7D007FE325 /* CoreBluetooth.framework */; };
-		751D28C61DC9B2B000243B32 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360691DBC4C7D007FE325 /* CoreBluetooth.framework */; };
 		751D28C91DC9B4C900243B32 /* StarPrinting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360501DBC3550007FE325 /* StarPrinting.framework */; };
 		751D28CB1DC9BA6700243B32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570BF66918DA3F73000876EA /* UIKit.framework */; };
+		751D28CD1DCA582700243B32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECCFD318D8ADCD00EE51FF /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +54,6 @@
 		57ECCF9A18D8AD5E00EE51FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		57ECCF9E18D8AD5E00EE51FF /* StarPrinting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StarPrinting-Prefix.pch"; sourceTree = "<group>"; };
 		57ECCFA718D8AD5E00EE51FF /* StarPrintingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarPrintingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		57ECCFA818D8AD5E00EE51FF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		57ECCFB218D8AD5E00EE51FF /* StarPrintingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StarPrintingTests-Info.plist"; sourceTree = "<group>"; };
 		57ECCFB418D8AD5E00EE51FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		57ECCFB618D8AD5E00EE51FF /* StarPrintingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarPrintingTests.m; sourceTree = "<group>"; };
@@ -91,7 +85,6 @@
 		57ECD03718D8B1B500EE51FF /* FakeSMPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeSMPort.m; sourceTree = "<group>"; };
 		57ECD04C18D8E94900EE51FF /* PrinterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterCell.h; sourceTree = "<group>"; };
 		57ECD04D18D8E94900EE51FF /* PrinterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterCell.m; sourceTree = "<group>"; };
-		57ECD05218D8E98800EE51FF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		750360501DBC3550007FE325 /* StarPrinting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StarPrinting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		750360531DBC3550007FE325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../StarPrint/Info.plist; sourceTree = "<group>"; };
 		750360651DBC4BD2007FE325 /* StarIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO.framework; sourceTree = "<group>"; };
@@ -104,8 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57ECD05318D8E98800EE51FF /* SenTestingKit.framework in Frameworks */,
-				57ECCFA918D8AD5E00EE51FF /* XCTest.framework in Frameworks */,
 				750360661DBC4BD2007FE325 /* StarIO.framework in Frameworks */,
 				57ECCFAA18D8AD5E00EE51FF /* Foundation.framework in Frameworks */,
 			);
@@ -115,10 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				751D28C61DC9B2B000243B32 /* CoreBluetooth.framework in Frameworks */,
-				579069F218DB83B500A44AED /* QuartzCore.framework in Frameworks */,
-				750360671DBC4BD2007FE325 /* StarIO.framework in Frameworks */,
-				57ECCFD418D8ADCD00EE51FF /* CoreGraphics.framework in Frameworks */,
+				751D28CD1DCA582700243B32 /* CoreGraphics.framework in Frameworks */,
 				751D28C91DC9B4C900243B32 /* StarPrinting.framework in Frameworks */,
 				57ECCFD218D8ADCD00EE51FF /* Foundation.framework in Frameworks */,
 			);
@@ -178,9 +166,7 @@
 				750360651DBC4BD2007FE325 /* StarIO.framework */,
 				570BF66918DA3F73000876EA /* UIKit.framework */,
 				570BF5D818D9F31C000876EA /* QuartzCore.framework */,
-				57ECD05218D8E98800EE51FF /* SenTestingKit.framework */,
 				57ECCF9A18D8AD5E00EE51FF /* Foundation.framework */,
-				57ECCFA818D8AD5E00EE51FF /* XCTest.framework */,
 				57ECCFD318D8ADCD00EE51FF /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
@@ -302,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57ECCFFC18D8ADCE00EE51FF /* Build configuration list for PBXNativeTarget "StarPrintingExample" */;
 			buildPhases = (
+				751D28CC1DCA566B00243B32 /* ShellScript */,
 				57ECCFCD18D8ADCD00EE51FF /* Sources */,
 				57ECCFCE18D8ADCD00EE51FF /* Frameworks */,
 				57ECCFCF18D8ADCD00EE51FF /* Resources */,
@@ -406,6 +393,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		751D28CC1DCA566B00243B32 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [[ -d $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME ]] ; then\n    rm -fr $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		57ECCFA318D8AD5E00EE51FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -484,13 +487,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../StarPRNT_iOS_SDK_V5_0_2/Software/Distributables\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -503,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -522,20 +531,25 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../StarPRNT_iOS_SDK_V5_0_2/Software/Distributables\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
