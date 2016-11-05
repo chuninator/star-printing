@@ -247,15 +247,18 @@ class Printer: NSObject {
 //        return compatible
 //    }
 //    
-//    class func fromPort(_ port: PortInfo) -> Printer {
-//        var printer = Printer()
-//        printer.modelName = port.modelName
-//        printer.portName = port.portName
-//        printer.macAddress = port.macAddress
-//        printer.initialize()
-//        return printer
-//    }
-//
+    class func fromPort(_ port: PortInfo) -> Printer {
+        let printer = Printer()
+        printer.modelName = port.modelName
+        printer.portName = port.portName
+        printer.macAddress = port.macAddress
+        
+        //Are we sure we need to initialize?
+        self.initialize()
+        
+        return printer
+    }
+
     
     
     //Don't see connectedPrinter var
@@ -290,21 +293,28 @@ class Printer: NSObject {
         return nil
     }
     
-    class func search(_ printer_search: PrinterSearchBlock) {
+    func search(_ printer_search: @escaping PrinterSearchBlock) {
         DispatchQueue.global(qos: .default).async(execute: {() -> Void in
             // look for my class of printers
-            var foundPrinters = SMPort.searchPrinter()
+            let foundPrinters = SMPort.searchPrinter() as NSArray
             // setup array of possible printers
-            var printers = [Any]() /* capacity: foundPrinters.count */
+            // wouldn't they be of type Printer?
+            var printers = [Printer]() /* capacity: foundPrinters.count */
             // lookup last connected printer, if any (non-nil)
-            var lastKnownPrinter = Printer.connected()
+            
+            //If it's connected, we'll set it.
+            //NOTE: There's a huge conflict in te Objective-C version. Just bad naming practices. They had a variable, and function with the same name? Confusing.
+            
+            let lastKnownPrinter = self.connectedPrinter
+            
+            
             // run thru the found printer ports
-            for p: PortInfo in foundPrinters {
-                var printer = Printer.fromPort(p)
+            for p: PortInfo in foundPrinters as! [PortInfo] {
+                let printer = Printer.fromPort(p)
                 // TODO DAC-2016-10-31 This makes no sense, if we are running thru found printers why is the last
                 // known used, if it is not online (not in the found list) we should not be using it
-                if (printer.macAddress == lastKnownPrinter.macAddress) {
-                    printers.append(lastKnownPrinter)
+                if (printer.macAddress == lastKnownPrinter?.macAddress) {
+                    printers.append(lastKnownPrinter!)
                 }
                 else {
                     printers.append(printer)
