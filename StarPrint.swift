@@ -255,21 +255,38 @@ class Printer: NSObject {
 //        printer.initialize()
 //        return printer
 //    }
-//    
-    class func connected() -> Printer {
+//
+    
+    
+    //Don't see connectedPrinter var
+    //Added, you can move to top. We'll force unwrap, because if it's there we'll be using it. Connected function might not always return one a Printer though, so we'll make it optional type `Printer?`
+    
+    var connectedPrinter : Printer!
+    
+    func connected() -> Printer? {
         // if already connected, return instance
-        var myStat = self.status
-        if .connected {
+        let myStat = self.status
+        
+        //myStat is defined, but we're not using it? Did you want to do this? We can always ask if it's not nil, if there's a printer there, we'll be using it. You pick :)
+
+        if myStat == .connected {
             return connectedPrinter
         }
+        
+        // || If the connectedPrinter != nil, we found one, and return that instance.
+        if connectedPrinter != nil {
+            return connectedPrinter
+        }
+        
         // try to get previously used printer
-        var defaults = UserDefaults.standard
-        if defaults.object(forKey: kConnectedPrinterKey)! {
-            var encoded = defaults.object(forKey: kConnectedPrinterKey)!
-            connectedPrinter = NSKeyedUnarchiver.unarchiveObject(withData: encoded)!
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: kConnectedPrinterKey) != nil {
+            let encoded = defaults.object(forKey: kConnectedPrinterKey)!
+            connectedPrinter = NSKeyedUnarchiver.unarchiveObject(with: encoded as! Data) as! Printer!
             return connectedPrinter
         }
         // signify no connected printer
+        // Printer can't be set to nil, unless we make it optional in the return type.
         return nil
     }
     
