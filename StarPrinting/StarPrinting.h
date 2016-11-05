@@ -16,11 +16,22 @@ FOUNDATION_EXPORT const unsigned char StarPrintingVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <StarPrint/PublicHeader.h>
 
 #import <Foundation/Foundation.h>
-#import "Printer.h"
-#import "Printable.h"
-#import "PrintParser.h"
-#import "PrintData.h"
 
-@interface StarPrinting : NSObject
+#import <StarIO/BluetoothPort.h>
+#import <StarIO/Port.h>
+#import <StarIO/SMBluetoothManager.h>
+#import <StarIO/SMPort.h>
+//#import <starmicronics/platform/Mac.h>
+#import <StarIO/SMPort.h>
+//#import <StarIO/Platform.h>
+//#import <StarIO/StarIOPort.h>
+#import <StarIO/WBluetoothPort.h>
 
-@end
+//#import "Printer.h"
+//#import "Printable.h"
+//#import "PrintParser.h"
+//#import "PrintData.h"
+
+//@interface StarPrinting : NSObject
+
+//@end

@@ -351,18 +351,22 @@ static char const * const ConnectJobTag = "ConnectJobTag";
 
 - (void)printTest
 {
-    if(![Printer connectedPrinter]) return;
+//    AppDelegate *_delegate = [[UIApplication sharedApplication] delegate];
+   if(![Printer connectedPrinter]) return;
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"xml"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"receipt_short" ofType:@"xml"];
    
     NSDictionary *dictionary = @{
                            @"{{printerStatus}}" : [Printer stringForStatus:[Printer connectedPrinter].status],
                            @"{{printerName}}" : [Printer connectedPrinter].name
                            };
     
+//    PrintData *printData = [[PrintData alloc] initWithDictionary:nil atFilePath:filePath];
     PrintData *printData = [[PrintData alloc] initWithDictionary:dictionary atFilePath:filePath];
     
     [self print:printData];
+//    [_delegate testPrint: @"Hey there"];
+
 }
 
 - (void)print:(PrintData *)printData

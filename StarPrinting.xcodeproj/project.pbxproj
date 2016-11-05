@@ -38,6 +38,13 @@
 		751D28C91DC9B4C900243B32 /* StarPrinting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360501DBC3550007FE325 /* StarPrinting.framework */; };
 		751D28CB1DC9BA6700243B32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570BF66918DA3F73000876EA /* UIKit.framework */; };
 		751D28CD1DCA582700243B32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ECCFD318D8ADCD00EE51FF /* CoreGraphics.framework */; };
+		75C671F21DCD356B004ED247 /* StarPrint.h in Headers */ = {isa = PBXBuildFile; fileRef = 75C671F01DCD356B004ED247 /* StarPrint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75C671F91DCD3588004ED247 /* StarPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C671F81DCD3588004ED247 /* StarPrint.swift */; };
+		75C671FA1DCD35D0004ED247 /* StarPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C671F81DCD3588004ED247 /* StarPrint.swift */; };
+		75C671FB1DCD361A004ED247 /* StarIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750360651DBC4BD2007FE325 /* StarIO.framework */; };
+		75C671FF1DCD3D78004ED247 /* StarIOPort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C671FE1DCD3D78004ED247 /* StarIOPort.swift */; };
+		75C672001DCD4452004ED247 /* StarPrint-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 75C671F71DCD3588004ED247 /* StarPrint-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75C672021DCD44E4004ED247 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C672011DCD44E4004ED247 /* Printer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +97,13 @@
 		750360651DBC4BD2007FE325 /* StarIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO.framework; sourceTree = "<group>"; };
 		750360691DBC4C7D007FE325 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		751D28C21DC9AA4900243B32 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		75C671EE1DCD356B004ED247 /* StarPrint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StarPrint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C671F01DCD356B004ED247 /* StarPrint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarPrint.h; sourceTree = "<group>"; };
+		75C671F11DCD356B004ED247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75C671F71DCD3588004ED247 /* StarPrint-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StarPrint-Bridging-Header.h"; sourceTree = "<group>"; };
+		75C671F81DCD3588004ED247 /* StarPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarPrint.swift; sourceTree = "<group>"; };
+		75C671FE1DCD3D78004ED247 /* StarIOPort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarIOPort.swift; sourceTree = "<group>"; };
+		75C672011DCD44E4004ED247 /* Printer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +137,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75C671EA1DCD356B004ED247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75C671FB1DCD361A004ED247 /* StarIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -140,9 +162,11 @@
 		57ECCF8E18D8AD5E00EE51FF = {
 			isa = PBXGroup;
 			children = (
+				75C671FD1DCD3D52004ED247 /* StarPrint */,
 				57ECCF9C18D8AD5E00EE51FF /* StarPrinting */,
 				57ECCFB018D8AD5E00EE51FF /* StarPrintingTests */,
 				57ECCFD618D8ADCD00EE51FF /* StarPrintingExample */,
+				75C671EF1DCD356B004ED247 /* StarPrint */,
 				57ECCF9918D8AD5E00EE51FF /* Frameworks */,
 				57ECCF9818D8AD5E00EE51FF /* Products */,
 			);
@@ -154,6 +178,7 @@
 				57ECCFA718D8AD5E00EE51FF /* StarPrintingTests.xctest */,
 				57ECCFD118D8ADCD00EE51FF /* StarPrintingExample.app */,
 				750360501DBC3550007FE325 /* StarPrinting.framework */,
+				75C671EE1DCD356B004ED247 /* StarPrint.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,6 +278,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		75C671EF1DCD356B004ED247 /* StarPrint */ = {
+			isa = PBXGroup;
+			children = (
+				75C671F01DCD356B004ED247 /* StarPrint.h */,
+				75C671F11DCD356B004ED247 /* Info.plist */,
+			);
+			path = StarPrint;
+			sourceTree = "<group>";
+		};
+		75C671FD1DCD3D52004ED247 /* StarPrint */ = {
+			isa = PBXGroup;
+			children = (
+				75C671F71DCD3588004ED247 /* StarPrint-Bridging-Header.h */,
+				75C671F81DCD3588004ED247 /* StarPrint.swift */,
+				75C671FE1DCD3D78004ED247 /* StarIOPort.swift */,
+				75C672011DCD44E4004ED247 /* Printer.swift */,
+			);
+			name = StarPrint;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -261,6 +306,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				750360601DBC3684007FE325 /* StarPrinting.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C671EB1DCD356B004ED247 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75C671F21DCD356B004ED247 /* StarPrint.h in Headers */,
+				75C672001DCD4452004ED247 /* StarPrint-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +374,24 @@
 			productReference = 750360501DBC3550007FE325 /* StarPrinting.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		75C671ED1DCD356B004ED247 /* StarPrint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75C671F51DCD356B004ED247 /* Build configuration list for PBXNativeTarget "StarPrint" */;
+			buildPhases = (
+				75C671E91DCD356B004ED247 /* Sources */,
+				75C671EA1DCD356B004ED247 /* Frameworks */,
+				75C671EB1DCD356B004ED247 /* Headers */,
+				75C671EC1DCD356B004ED247 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StarPrint;
+			productName = StarPrint;
+			productReference = 75C671EE1DCD356B004ED247 /* StarPrint.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -330,6 +402,7 @@
 				ORGANIZATIONNAME = OpenTable;
 				TargetAttributes = {
 					57ECCFA618D8AD5E00EE51FF = {
+						LastSwiftMigration = 0810;
 						TestTargetID = 57ECCFD018D8ADCD00EE51FF;
 					};
 					57ECCFD018D8ADCD00EE51FF = {
@@ -337,6 +410,11 @@
 					};
 					7503604F1DBC3550007FE325 = {
 						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					75C671ED1DCD356B004ED247 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = NL3267E99V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -357,6 +435,7 @@
 				57ECCFA618D8AD5E00EE51FF /* StarPrintingTests */,
 				57ECCFD018D8ADCD00EE51FF /* StarPrintingExample */,
 				7503604F1DBC3550007FE325 /* StarPrinting */,
+				75C671ED1DCD356B004ED247 /* StarPrint */,
 			);
 		};
 /* End PBXProject section */
@@ -391,6 +470,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75C671EC1DCD356B004ED247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -415,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57ECCFB718D8AD5E00EE51FF /* StarPrintingTests.m in Sources */,
+				75C671F91DCD3588004ED247 /* StarPrint.swift in Sources */,
 				57777E2C18DB779D00922AE5 /* SenAsyncTestCase.m in Sources */,
 				57ECD03B18D8B1E000EE51FF /* FakePrinterManager.m in Sources */,
 				57ECD03918D8B1B500EE51FF /* FakeSMPort.m in Sources */,
@@ -441,6 +528,16 @@
 				7503605A1DBC3571007FE325 /* PrintParser.m in Sources */,
 				7503605C1DBC3579007FE325 /* PrintData.m in Sources */,
 				7503605B1DBC3575007FE325 /* PrintTextFormatter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C671E91DCD356B004ED247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75C672021DCD44E4004ED247 /* Printer.swift in Sources */,
+				75C671FF1DCD3D78004ED247 /* StarIOPort.swift in Sources */,
+				75C671FA1DCD35D0004ED247 /* StarPrint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +656,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StarPrintingExample.app/StarPrintingExample";
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StarPrinting/StarPrinting-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -566,7 +664,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "StarPrintingTests/StarPrintingTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StarPrintingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -576,10 +678,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StarPrintingExample.app/StarPrintingExample";
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StarPrinting/StarPrinting-Prefix.pch";
 				INFOPLIST_FILE = "StarPrintingTests/StarPrintingTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StarPrintingTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -710,6 +816,78 @@
 			};
 			name = Release;
 		};
+		75C671F31DCD356B004ED247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = StarPrint/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.StarPrint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		75C671F41DCD356B004ED247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = StarPrint/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.StarPrint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -748,6 +926,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		75C671F51DCD356B004ED247 /* Build configuration list for PBXNativeTarget "StarPrint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75C671F31DCD356B004ED247 /* Debug */,
+				75C671F41DCD356B004ED247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
