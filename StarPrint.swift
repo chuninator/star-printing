@@ -195,7 +195,7 @@ class Printer: NSObject {
             }
         }
     }
-    private(set) var isHasError = false
+    private(set) var hasError = false
     private(set) var isOffline = false
     private(set) var isOnlineWithError = false
     private(set) var isCompatible = false
@@ -221,32 +221,38 @@ class Printer: NSObject {
             }
         }
     }
-//    var isReadyToPrint: Bool {
-//        var result = self.status.connected | self.status.lowPaper
-//        return result
-//    }
-//    var isHasError: Bool {
-//        return self.status != .connected && self.status != .connecting && self.status != .disconnected
-//    }
-//    var isOffline: Bool {
-//        return self.status == .connectionError | self.status == .lostConnectionError | self.status == .unknownError
-//    }
-//    var isOnlineWithError: Bool {
-//        return self.isHasError && !self.isOffline && self.status != .printError
-//    }
-//    var isCompatible: Bool {
-//        var compatible = true
-//        var p = self.modelName.components(separatedBy: " (")
-//        if p.count == 2 {
-//            var modelNumber = p[0]
-//            var result = (modelNumber as NSString).rangeOf("TSP1")
-//            if result.location == NSNotFound {
-//                compatible = false
-//            }
-//        }
-//        return compatible
-//    }
-//    
+    
+    
+    //These are functions, not be mixed with variable names declared at top. or  == ||
+    
+    func isReadyToPrint() -> Bool {
+        return self.status == .connected || self.status == .lowPaper
+    }
+    
+    func isHasError() -> Bool {
+        return self.status != .connected && self.status != .connecting && self.status != .disconnected
+    }
+    func isHasOffline() -> Bool {
+        return self.status == .connectionError || self.status == .lostConnectionError || self.status == .unknownError
+    }
+    
+    func isHasOnlineWithError() -> Bool {
+        return self.isHasError() && !self.isHasOffline() && self.status != .printError
+    }
+    
+    func isHasCompatible() -> Bool {
+        var compatible = true
+        var p = self.modelName?.components(separatedBy: " (")
+        if p?.count == 2 {
+            let modelNumber = p?[0]
+            let result = (modelNumber! as NSString).range(of: "TSP1")
+            if result.location == NSNotFound {
+                compatible = false
+            }
+        }
+        return compatible
+    }
+    
     class func fromPort(_ port: PortInfo) -> Printer {
         let printer = Printer()
         printer.modelName = port.modelName
@@ -327,38 +333,38 @@ class Printer: NSObject {
         })
     }
 //
-//    class func portClass() -> AnyClass {
-//        return SMPort.self
-//    }
-//    
-//    convenience init(for status: PrinterStatus) {
-//        switch status {
-//        case .connected:
-//            return NSLocalizedString("Connected", comment: "Connected")
-//        case .connecting:
-//            return NSLocalizedString("Connecting", comment: "Connecting")
-//        case .disconnected:
-//            return NSLocalizedString("Disconnected", comment: "Disconnected")
-//        case .lowPaper:
-//            return NSLocalizedString("Low Paper", comment: "Low Paper")
-//        case .coverOpen:
-//            return NSLocalizedString("Cover Open", comment: "Cover Open")
-//        case .outOfPaper:
-//            return NSLocalizedString("Out of Paper", comment: "Out of Paper")
-//        case .connectionError:
-//            return NSLocalizedString("Connection Error", comment: "Connection Error")
-//        case .lostConnectionError:
-//            return NSLocalizedString("Lost Connection", comment: "Lost Connection")
-//        case .printError:
-//            return NSLocalizedString("Print Error", comment: "Print Error")
-//        case .incompatible:
-//            return NSLocalizedString("Incompatible Printer", comment: "Incompatible Printer")
-//        default:
-//            return NSLocalizedString("Unknown Error", comment: "Unknown Error")
-//        }
-//        
-//    }
-//    
+    func portClass() -> AnyClass {
+        return SMPort.self
+    }
+    
+
+    convenience init(for status: PrinterStatus) {
+        switch status {
+        case .connected:
+            return NSLocalizedString("Connected", comment: "Connected")
+        case .connecting:
+            return NSLocalizedString("Connecting", comment: "Connecting")
+        case .disconnected:
+            return NSLocalizedString("Disconnected", comment: "Disconnected")
+        case .lowPaper:
+            return NSLocalizedString("Low Paper", comment: "Low Paper")
+        case .coverOpen:
+            return NSLocalizedString("Cover Open", comment: "Cover Open")
+        case .outOfPaper:
+            return NSLocalizedString("Out of Paper", comment: "Out of Paper")
+        case .connectionError:
+            return NSLocalizedString("Connection Error", comment: "Connection Error")
+        case .lostConnectionError:
+            return NSLocalizedString("Lost Connection", comment: "Lost Connection")
+        case .printError:
+            return NSLocalizedString("Print Error", comment: "Print Error")
+        case .incompatible:
+            return NSLocalizedString("Incompatible Printer", comment: "Incompatible Printer")
+        default:
+            return NSLocalizedString("Unknown Error", comment: "Unknown Error")
+        }
+    }
+//
 //    func connect(_ result: PrinterResultBlock) {
 //        self.log("Attempting to connect")
 //        connectedPrinter = self
@@ -394,6 +400,7 @@ class Printer: NSObject {
 //        if !Printer.connected() {
 //            return
 //        }
+//        
 //        var filePath = Bundle.main.path(forResource: "receipt_short", ofType: "xml")!
 //        var dictionary = ["{{printerStatus}}": Printer.init(for: Printer.connected().status), "{{printerName}}": Printer.connected().name]
 //        //    PrintData *printData = [[PrintData alloc] initWithDictionary:nil atFilePath:filePath];
@@ -412,7 +419,7 @@ class Printer: NSObject {
 //            })
 //        }
 //    }
-//    
+//
 //    func stopHeartbeat() {
 //        self.heartbeatTimer.invalidate()
 //        self.heartbeatTimer = nil
