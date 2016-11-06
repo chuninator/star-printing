@@ -180,6 +180,8 @@ protocol PrinterDelegate: class {
 }
 
 class Printer: NSObject {
+    
+    
     weak var delegate: PrinterDelegate?
     var port: SMPort!
     var modelName: String?
@@ -195,10 +197,19 @@ class Printer: NSObject {
             }
         }
     }
-    private(set) var hasError = false
-    private(set) var isOffline = false
-    private(set) var isOnlineWithError = false
-    private(set) var isCompatible = false
+    
+    //We don't need private set. Just private.
+    
+    private var hasError = false
+    private var isOffline = false
+    private var isOnlineWithError = false
+    private var isCompatible = false
+    
+    //Missing vars, I would even remove all of the NS...
+    var jobs = NSMutableArray()
+    var queue = OperationQueue()
+    
+    
     var heartbeatTimer: Timer!
     var previousOnlineStatus: PrinterStatus!
     //    var status = PrinterStatus(rawValue: 0)
@@ -338,51 +349,55 @@ class Printer: NSObject {
     }
     
 
-    convenience init(for status: PrinterStatus) {
-        switch status {
-        case .connected:
-            return NSLocalizedString("Connected", comment: "Connected")
-        case .connecting:
-            return NSLocalizedString("Connecting", comment: "Connecting")
-        case .disconnected:
-            return NSLocalizedString("Disconnected", comment: "Disconnected")
-        case .lowPaper:
-            return NSLocalizedString("Low Paper", comment: "Low Paper")
-        case .coverOpen:
-            return NSLocalizedString("Cover Open", comment: "Cover Open")
-        case .outOfPaper:
-            return NSLocalizedString("Out of Paper", comment: "Out of Paper")
-        case .connectionError:
-            return NSLocalizedString("Connection Error", comment: "Connection Error")
-        case .lostConnectionError:
-            return NSLocalizedString("Lost Connection", comment: "Lost Connection")
-        case .printError:
-            return NSLocalizedString("Print Error", comment: "Print Error")
-        case .incompatible:
-            return NSLocalizedString("Incompatible Printer", comment: "Incompatible Printer")
-        default:
-            return NSLocalizedString("Unknown Error", comment: "Unknown Error")
-        }
-    }
-//
-//    func connect(_ result: PrinterResultBlock) {
-//        self.log("Attempting to connect")
-//        connectedPrinter = self
-//        self.status = .connecting
-//        var connectJob = {(_ portConnected: Bool) -> Void in
-//            if !portConnected {
-//                self.jobFailedRetry(true)
-//                self.log("Failed to connect")
-//            }
-//            else {
-//                self.establishConnection()
-//                self.jobWasSuccessful()
-//                self.log("Successfully connected")
-//            }
-//            if result {
-//                result(portConnected)
-//            }
+//    convenience init(for status: PrinterStatus) {
+//        switch status {
+//        case .connected:
+//            return NSLocalizedString("Connected", comment: "Connected")
+//        case .connecting:
+//            return NSLocalizedString("Connecting", comment: "Connecting")
+//        case .disconnected:
+//            return NSLocalizedString("Disconnected", comment: "Disconnected")
+//        case .lowPaper:
+//            return NSLocalizedString("Low Paper", comment: "Low Paper")
+//        case .coverOpen:
+//            return NSLocalizedString("Cover Open", comment: "Cover Open")
+//        case .outOfPaper:
+//            return NSLocalizedString("Out of Paper", comment: "Out of Paper")
+//        case .connectionError:
+//            return NSLocalizedString("Connection Error", comment: "Connection Error")
+//        case .lostConnectionError:
+//            return NSLocalizedString("Lost Connection", comment: "Lost Connection")
+//        case .printError:
+//            return NSLocalizedString("Print Error", comment: "Print Error")
+//        case .incompatible:
+//            return NSLocalizedString("Incompatible Printer", comment: "Incompatible Printer")
+//        default:
+//            return NSLocalizedString("Unknown Error", comment: "Unknown Error")
 //        }
+//    }
+//
+    func connect(_ result: PrinterResultBlock) {
+        
+        //No self.log
+        print("Attempting to connect")
+        
+        connectedPrinter = self
+        self.status = .connecting
+        var connectJob = {(_ portConnected: Bool) -> Void in
+            if !portConnected {
+                self.jobFailedRetry(true)
+                
+                print("Failed to connect")
+            }
+            else {
+                self.establishConnection()
+                self.jobWasSuccessful()
+                print("Successfully connected")
+            }
+            if result {
+                result(portConnected)
+            }
+        }
 //        objc_setAssociatedObject(connectJob, ConnectJobTag, 1, OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 //        self.addJob(connectJob)
 //    }
@@ -565,26 +580,26 @@ class Printer: NSObject {
 //        self.runNext()
 //    }
 //    
-//    func jobFailedRetry(_ retry: Bool) {
-//        if !retry {
-//            self.jobs.remove(at: 0)
-//            self.printJobCount("FAILURE, Removing job")
-//        }
-//        else {
-//            var delayInSeconds: Double = kJobRetryInterval
-//            var popTime = DispatchTime.now() + Double(Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-//            DispatchQueue.main.asyncAfter(deadline: popTime / Double(NSEC_PER_SEC), execute: {() -> Void in
-//                if self.jobs.count == 0 {
-//                    return
-//                }
-//                self.log("***** RETRYING JOB ******")
-//                var job = self.jobs[0]
-//                self.jobs.remove(at: 0)
-//                self.jobs.append(job)
-//                self.runNext()
-//            })
-//        }
-//    }
+    func jobFailedRetry(_ retry: Bool) {
+        if !retry {
+            self.jobs.remove(at: 0)
+            printJobCount("FAILURE, Removing job")
+        }
+        else {
+            var delayInSeconds: Double = kJobRetryInterval
+            var popTime = DispatchTime.now() + Double(Int64(delayInSeconds * Double(NSEC_PER_SEC)))
+            DispatchQueue.main.asyncAfter(deadline: popTime / Double(NSEC_PER_SEC), execute: {() -> Void in
+                if self.jobs.count == 0 {
+                    return
+                }
+                self.log("***** RETRYING JOB ******")
+                var job = self.jobs[0]
+                self.jobs.remove(at: 0)
+                self.jobs.append(job)
+                self.runNext()
+            })
+        }
+    }
 //    // MARK: - Connection
 //    
 //    func establishConnection() {
@@ -697,10 +712,10 @@ class Printer: NSObject {
 //        }
 //    }
 //    
-//    func printJobCount(_ message: String) {
-//        self.log("\(message) -> Job Count = \(self.jobs.count)")
-//    }
-//    
+    func printJobCount(_ message: String) {
+        print("\(message) -> Job Count = \(self.jobs.count)")
+    }
+//
 //    func isConnectJob(_ job: PrinterJobBlock) -> Bool {
 //        var isConnectJob = objc_getAssociatedObject(job, PrintJobTag)
 //        return CInt(isConnectJob) == 1
