@@ -17,21 +17,21 @@ FOUNDATION_EXPORT const unsigned char StarPrintingVersionString[];
 
 #import <Foundation/Foundation.h>
 
-#import <StarIO/BluetoothPort.h>
-#import <StarIO/Port.h>
-#import <StarIO/SMBluetoothManager.h>
-#import <StarIO/SMPort.h>
+//#import <StarIO/BluetoothPort.h>
+//#import <StarIO/Port.h>
+//#import <StarIO/SMBluetoothManager.h>
+//#import <StarIO/SMPort.h>
 //#import <starmicronics/platform/Mac.h>
-#import <StarIO/SMPort.h>
+//#import <StarIO/SMPort.h>
 //#import <StarIO/Platform.h>
 //#import <StarIO/StarIOPort.h>
-#import <StarIO/WBluetoothPort.h>
+//#import <StarIO/WBluetoothPort.h>
 
-//#import "Printer.h"
-//#import "Printable.h"
-//#import "PrintParser.h"
-//#import "PrintData.h"
+#import "Printer.h"
+#import "Printable.h"
+#import "PrintParser.h"
+#import "PrintData.h"
 
-//@interface StarPrinting : NSObject
+@interface StarPrinting : NSObject
 
-//@end
+@end
